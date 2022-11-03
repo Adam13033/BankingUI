@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+
+import { useEffect, useState } from 'react';
+import Notice from './Components/Notice';
+import NoticeUI from './Notices/NoticeUI';
+import RegisterUI from './Register/RegisterUI';
 
 function App() {
+  const [user, setUser] = useState();
+
+  // useEffect(() => {
+  //   tokenFetch(setUser);
+  // }, [user])
+
+  const handleLogout = () => {
+    setUser();
+  }
+  console.log("testing user state in app.js" + user);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {/* { !user ? <RegisterUI setUser = { setUser } user = { user } /> :
+      <h1>hi</h1>} */}
+      {/* <NoticeUI /> */}
+      <Notice />
     </div>
   );
 }
